@@ -20,6 +20,14 @@ The purpose of this repository is to show example Python and C++ code for Sailbo
 
 If there are any issues running the code as described above, please let me know and I will try my best to help out. If you are missing packages, you may need to run `sudo apt-get install ros-melodic-XXXX`, eg. `sudo apt-get install ros-melodic-geometry-msgs`. 
 
+## Important things to know when making your own script
+
+* Be sure to run `chmod +x <script.py>` to make it executable
+
+* Add the script into the CMakeLists.txt, following the examples from the other scripts
+
+* If starting your own package, follow the references below.
+
 ## References
 
 Setting up ROS workspace and package
