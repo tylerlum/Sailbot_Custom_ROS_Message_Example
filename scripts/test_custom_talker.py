@@ -4,7 +4,7 @@ from test_package.msg import AIS
 
 def talker():
     pub = rospy.Publisher('custom_AIS', AIS)
-    rospy.init_node('custom_AIS', anonymous=True)
+    rospy.init_node('custom_AIS_talker', anonymous=True)
     r = rospy.Rate(10) #10hz
     msg = AIS()
     msg.MMSI = 100000000
