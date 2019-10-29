@@ -25,3 +25,18 @@ Creating a publisher and subscriber for a custom message
 Debugging Help
 
 * https://answers.ros.org/question/114806/tutorial-116-importerror-no-module-named-beginner_tutorialssrv-with-catkin-system-build/
+
+
+## Other Message Types
+
+TODO: investigate which message types are best to use for Sailbot
+
+Message Classes
+
+* http://wiki.ros.org/geometry_msgs - Look at Pose, Pose2D, Vector3, Quaternion, Twist
+
+* http://wiki.ros.org/nav_msgs - Look at Path, Occupancy Grid
+
+* http://wiki.ros.org/std_msgs - Lots! Mostly String, Int arrays, time, float arrays
+
+* http://wiki.ros.org/geographic_msgs - GeoPoint, GeoPointStamped, GeographicMap
