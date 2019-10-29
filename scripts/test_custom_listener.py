@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import rospy
-from test_package.msg import AIS
+from Sailbot_Custom_ROS_Message_Example.msg import AIS
 from geometry_msgs.msg import Pose2D
 
 msg = Pose2D()

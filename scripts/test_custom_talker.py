@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 import rospy
-from test_package.msg import AIS
+from Sailbot_Custom_ROS_Message_Example.msg import AIS
 
 def talker():
     pub = rospy.Publisher('custom_AIS', AIS)
