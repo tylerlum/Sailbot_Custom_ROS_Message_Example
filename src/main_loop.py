@@ -1,6 +1,14 @@
 #!/usr/bin/env python
 
-if __name__ == '__main':
+import Sailbot
+from Sailbot import *
+
+import utilities
+from utilities import *
+
+import time
+
+if __name__ == '__main__':
     # Given globalPath from start. Assume doesn't change for now
     globalPath = [[1,0], [10,11],[24,10]]
 
@@ -15,9 +23,11 @@ if __name__ == '__main':
     currentState = sailbot.getCurrentState()
     currentLandAndBorderData = getCurrentLandAndBorderData(currentState)
     currentPath = createNewPath(currentState, currentLandAndBorderData)
-    lastTimePathCreated = time.now()
+    lastTimePathCreated = time.time()
 
-    while true:
+    while True:
+        print("LOOP. Time is {}".format(time.time()))
+
         currentState = sailbot.getCurrentState()
 
         # If next global waypoint reached, update land and border data
@@ -30,15 +40,14 @@ if __name__ == '__main':
 
             # Update local path
             currentPath = createNewPath(currentState, currentLandAndBorderData)
-            lastTimePathCreated = time.now()
+            lastTimePathCreated = time.time()
 
             # publish 2nd point of new path (not the current position)
 
 
-        else if isBad(currentPath) or nextLocalWaypointReached(currentState) or timeLimitExceeded(lastTimePathCreated):
+        elif isBad(currentPath) or nextLocalWaypointReached(currentState) or timeLimitExceeded(lastTimePathCreated):
             # Update local path
             currentPath = createNewPath(currentState, currentLandAndBorderData)
             lastTimePathCreated = time.now()
 
             # publish 2nd point of new path (not the current position)
-
