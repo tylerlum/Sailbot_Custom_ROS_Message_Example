@@ -13,7 +13,7 @@ import time
 
 if __name__ == '__main__':
     # Given globalPath from start, assume doesn't change for now
-    globalPath = [[1,0], [10,11],[24,10]]
+    globalPath = [GPSCoordinates(1,0), GPSCoordinates(10,11), GPSCoordinates(24,10)]
 
     # Create sailbot ROS object that subscribes to relevant topics
     sailbot = Sailbot()
@@ -58,7 +58,7 @@ if __name__ == '__main__':
             nextLocalWaypointMsg.y = currentPath[1][1]
             nextLocalWaypointPublisher.publish(nextLocalWaypointMsg)
 
-        elif isBad(currentPath) or nextLocalWaypointReached(currentState) or timeLimitExceeded(lastTimePathCreated):
+        elif isBad(currentState, currentPath) or nextLocalWaypointReached(currentState, nextLocalWaypointMsg) or timeLimitExceeded(lastTimePathCreated):
             rospy.loginfo("Updating currentPath")
             # Update local path
             currentPath = createNewPath(currentState, currentLandAndBorderData)
