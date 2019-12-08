@@ -13,7 +13,7 @@ def nextGlobalWaypointReached(currentState):
     distanceThreshold = 0.5
     return distance(currentState.currentPosition, currentState.globalWaypoint) < distanceThreshold
 
-def isBad(currentState, currentPath):
+def isBad(currentState, currentPath, currentLandAndBorderData):
     return None
 
 def nextLocalWaypointReached(currentState, nextLocalWaypointMsg):

@@ -56,9 +56,8 @@ if __name__ == '__main__':
             # publish 2nd point of new path (not the current position)
             nextLocalWaypointMsg.x = currentPath[1][0]
             nextLocalWaypointMsg.y = currentPath[1][1]
-            nextLocalWaypointPublisher.publish(nextLocalWaypointMsg)
 
-        elif isBad(currentState, currentPath) or nextLocalWaypointReached(currentState, nextLocalWaypointMsg) or timeLimitExceeded(lastTimePathCreated):
+        elif isBad(currentState, currentPath, currentLandAndBorderData) or nextLocalWaypointReached(currentState, nextLocalWaypointMsg) or timeLimitExceeded(lastTimePathCreated):
             rospy.loginfo("Updating currentPath")
             # Update local path
             currentPath = createNewPath(currentState, currentLandAndBorderData)
@@ -67,7 +66,7 @@ if __name__ == '__main__':
             # publish 2nd point of new path (not the current position)
             nextLocalWaypointMsg.x = currentPath[1][0]
             nextLocalWaypointMsg.y = currentPath[1][1]
-            nextLocalWaypointPublisher.publish(nextLocalWaypointMsg)
 
         rospy.loginfo_throttle(1, "nextLocalWaypointMsg: {0} {1}".format(nextLocalWaypointMsg.x, nextLocalWaypointMsg.y))  # Prints every x seconds
+        nextLocalWaypointPublisher.publish(nextLocalWaypointMsg)
         publishRate.sleep()
